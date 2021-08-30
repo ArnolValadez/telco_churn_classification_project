@@ -16,7 +16,7 @@ def get_telco_data():
     if os.path.isfile(filename):
         return pd.read_csv(filename)
     else:
-        telco_df = pd.read_sql(my_telco_query, get_db_url('telco_churn'))
+        telco_df = pd.read_sql(my_query, get_connection('telco_churn'))
         telco_df.to_csv(filename, index = False)
         
     return telco_df
